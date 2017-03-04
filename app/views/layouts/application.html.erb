@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Sansita:800" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class = "be-red white large-padding sin_solapamiento no-margin" >
+      <ul class = "no-list row center-xs no margin">
+        <span class="col-md no-margin elemento">
+          <h1 class="no-margin col-md"> TrueKeros</h1>
+        </span>
+        <a class="col-md elemento "href="/">
+          <li class="col-md elemento">Inicio</li>
+        </a>
+        <li class="col-md elemento">
+          Truekear
+        </li>
+        <% if not user_signed_in? %>
+          <a class="col-md elemento "href="/users/sign_in">
+            <li class="col-md elemento">Iniciar sesion</li>
+          </a>
+          <a class="col-md elemento "href="/users/sign_up">
+            <li class="col-md elemento">Registrate</li>
+          </a>
+        <%end%>
+
+        <% if user_signed_in? %>
+          <li class="col-md elemento">
+            Perfil
+          </li>
+          <li class="col-md elemento">
+            <%= link_to "Cerrar sesion" ,destroy_user_session_path, method: :delete %>
+          </li>
+        <%end%>
+      </ul>
+    </nav>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
+<%= yield %>
+
+</body>
+</html>
