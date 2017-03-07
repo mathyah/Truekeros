@@ -6,6 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Sansita:800" rel="stylesheet">
+  <style>
+    html,body{
+      font-family:'Bree Serif', serif;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -36,6 +42,9 @@
           <li class="col-md elemento">
             <%= link_to "Cerrar sesion" ,destroy_user_session_path, method: :delete %>
           </li>
+          <a class="col-md elemento "href="/users/sign_out">
+            <li class="col-md elemento">Registrate</li>
+          </a>
         <%end%>
       </ul>
     </nav>
